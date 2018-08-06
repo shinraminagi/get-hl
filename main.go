@@ -142,10 +142,10 @@ func download(rawurl string) error {
 		return err
 	}
 	resp, err := http.Get(rawurl)
-	defer resp.Body.Close()
 	if err != nil {
 		return err
 	}
+	defer resp.Body.Close()
 	file, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		return err
